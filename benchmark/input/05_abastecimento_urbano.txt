@@ -1,0 +1,17 @@
+Represa_Central Bairro_Central
+Represa_Central ETA_Norte 1500
+Represa_Central ETA_Sul 2000
+ETA_Norte Elevatoria_1 1000
+ETA_Norte Reservatorio_R1 800
+ETA_Sul Elevatoria_2 1200
+ETA_Sul Reservatorio_R2 1100
+Elevatoria_1 Reservatorio_R1 500
+Elevatoria_1 Polo_Industrial 900
+Elevatoria_2 Reservatorio_R2 600
+Elevatoria_2 Setor_Leste 800
+Reservatorio_R1 Setor_Leste 700
+Reservatorio_R1 Polo_Industrial 1000
+Reservatorio_R2 Setor_Leste 900
+Reservatorio_R2 Polo_Industrial 600
+Setor_Leste Bairro_Central 1600
+Polo_Industrial Bairro_Central 2200

@@ -1,0 +1,30 @@
+{
+  "source": "s",
+  "sink": "t",
+  "edges": [
+    {"from": "s", "to": "L1_1", "capacity": 35},
+    {"from": "s", "to": "L1_2", "capacity": 40},
+    {"from": "s", "to": "L1_3", "capacity": 25},
+    {"from": "L1_1", "to": "L2_1", "capacity": 20},
+    {"from": "L1_1", "to": "L2_2", "capacity": 15},
+    {"from": "L1_2", "to": "L2_1", "capacity": 10},
+    {"from": "L1_2", "to": "L2_2", "capacity": 25},
+    {"from": "L1_2", "to": "L2_3", "capacity": 15},
+    {"from": "L1_3", "to": "L2_3", "capacity": 20},
+    {"from": "L1_3", "to": "L2_4", "capacity": 10},
+    {"from": "L2_1", "to": "L2_2", "capacity": 10},
+    {"from": "L2_2", "to": "L2_3", "capacity": 12},
+    {"from": "L2_3", "to": "L2_4", "capacity": 8},
+    {"from": "L2_1", "to": "L3_1", "capacity": 25},
+    {"from": "L2_2", "to": "L3_1", "capacity": 15},
+    {"from": "L2_2", "to": "L3_2", "capacity": 20},
+    {"from": "L2_3", "to": "L3_2", "capacity": 18},
+    {"from": "L2_3", "to": "L3_3", "capacity": 12},
+    {"from": "L2_4", "to": "L3_3", "capacity": 15},
+    {"from": "L3_1", "to": "L3_2", "capacity": 10},
+    {"from": "L3_2", "to": "L3_3", "capacity": 10},
+    {"from": "L3_1", "to": "t", "capacity": 30},
+    {"from": "L3_2", "to": "t", "capacity": 35},
+    {"from": "L3_3", "to": "t", "capacity": 25}
+  ]
+}
