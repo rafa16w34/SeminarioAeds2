@@ -23,7 +23,7 @@ SRCS = $(SRC_DIR)/Grafo.cpp \
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 TARGET = $(BIN_DIR)/benchmark_runner
 
-.PHONY: all benchmark run run-benchmark plot test clean simulacao-abastecimento help
+.PHONY: all benchmark run run-benchmark plot visual-grafos test clean simulacao-abastecimento help
 
 all: benchmark
 
@@ -49,6 +49,10 @@ run-benchmark: $(TARGET) | $(OUTPUT_DIR)
 
 plot:
 	@$(PYTHON) $(SCRIPTS_DIR)/generate_plots.py $(OUTPUT_DIR)/results.csv
+	@$(PYTHON) $(SCRIPTS_DIR)/visualizar_grafos.py $(INPUT_DIR) $(OUTPUT_DIR)
+
+visual-grafos:
+	@$(PYTHON) $(SCRIPTS_DIR)/visualizar_grafos.py $(INPUT_DIR) $(OUTPUT_DIR)
 
 run: benchmark run-benchmark plot
 
@@ -67,6 +71,7 @@ help:
 	@echo "  make                        - Compila todo o projeto C++"
 	@echo "  make run                    - Compila, executa os testes e gera todos os graficos PNG de uma vez"
 	@echo "  make run-benchmark          - Executa apenas o benchmark C++"
-	@echo "  make plot                   - Gera apenas os graficos PNG"
+	@echo "  make plot                   - Gera os graficos de desempenho e os diagramas dos grafos de entrada em PNG"
+	@echo "  make visual-grafos          - Gera apenas os diagramas visuais dos grafos de benchmark em PNG"
 	@echo "  make simulacao-abastecimento - Executa o projeto Python da Frente 2"
 	@echo "  make clean                  - Remove arquivos binarios e objetos compilados"
