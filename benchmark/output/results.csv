@@ -1,0 +1,21 @@
+cenario_teste,formato,vertices,arestas,fonte,sorvedouro,algoritmo,fluxo_maximo,tempo_microssegundos,tempo_milissegundos,iteracoes_ou_discharges,pushes,relabels
+01_exemplo_cormen,.txt,6,10,s,t,"Ford-Fulkerson (DFS)",23,2.86,0.00286,5,0,0
+01_exemplo_cormen,.txt,6,10,s,t,"Edmonds-Karp (BFS)",23,2.38,0.00237,3,0,0
+01_exemplo_cormen,.txt,6,10,s,t,"Push-Relabel (Genérico)",23,2.37,0.00237,31,16,15
+01_exemplo_cormen,.txt,6,10,s,t,"Relabel-to-Front",23,2.86,0.00286,18,18,13
+02_diamante_patologico,.dat,4,5,s,t,"Ford-Fulkerson (DFS)",20000,1741.76,1.74176,20000,0,0
+02_diamante_patologico,.dat,4,5,s,t,"Edmonds-Karp (BFS)",20000,1.89,0.00189,2,0,0
+02_diamante_patologico,.dat,4,5,s,t,"Push-Relabel (Genérico)",20000,1.47,0.00147,6,4,2
+02_diamante_patologico,.dat,4,5,s,t,"Relabel-to-Front",20000,1.47,0.00147,3,7,3
+03_emparelhamento_bipartido,.csv,12,20,s,t,"Ford-Fulkerson (DFS)",5,2.86,0.00286,5,0,0
+03_emparelhamento_bipartido,.csv,12,20,s,t,"Edmonds-Karp (BFS)",5,2.38,0.00237,5,0,0
+03_emparelhamento_bipartido,.csv,12,20,s,t,"Push-Relabel (Genérico)",5,1.89,0.00189,36,21,15
+03_emparelhamento_bipartido,.csv,12,20,s,t,"Relabel-to-Front",5,3.35,0.00335,92,35,20
+04_rede_densa,.json,12,24,s,t,"Ford-Fulkerson (DFS)",90,12.29,0.01229,26,0,0
+04_rede_densa,.json,12,24,s,t,"Edmonds-Karp (BFS)",90,4.40,0.00440,8,0,0
+04_rede_densa,.json,12,24,s,t,"Push-Relabel (Genérico)",90,7.61,0.00761,214,124,90
+04_rede_densa,.json,12,24,s,t,"Relabel-to-Front",90,10.41,0.01041,510,154,94
+05_abastecimento_urbano,.txt,10,16,Represa_Central,Bairro_Central,"Ford-Fulkerson (DFS)",3500,5.24,0.00524,11,0,0
+05_abastecimento_urbano,.txt,10,16,Represa_Central,Bairro_Central,"Edmonds-Karp (BFS)",3500,2.38,0.00237,7,0,0
+05_abastecimento_urbano,.txt,10,16,Represa_Central,Bairro_Central,"Push-Relabel (Genérico)",3500,1.96,0.00196,41,24,17
+05_abastecimento_urbano,.txt,10,16,Represa_Central,Bairro_Central,"Relabel-to-Front",3500,3.28,0.00328,71,35,20

@@ -1,3 +1,4 @@
 benchmark/bin/
 benchmark/build/
-benchmark/output/
+__pycache__/
+*.pyc
