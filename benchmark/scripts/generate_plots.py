@@ -44,37 +44,61 @@ def main():
         "Relabel-to-Front": "#AB63FA"
     }
 
+    estilos = {
+        "Ford-Fulkerson (DFS)": dict(dash="solid", marker="circle", size=11, width=3.5),
+        "Edmonds-Karp (BFS)": dict(dash="dash", marker="square", size=10, width=3.0),
+        "Push-Relabel (Genérico)": dict(dash="dot", marker="diamond", size=10, width=3.0),
+        "Relabel-to-Front": dict(dash="dashdot", marker="triangle-up", size=11, width=3.0)
+    }
+
     fig_tempo = go.Figure()
     for algo in df[coluna_algoritmo].unique():
         sub = df[df[coluna_algoritmo] == algo]
-        fig_tempo.add_trace(go.Bar(
+        est = estilos.get(algo, dict(dash="solid", marker="circle", size=10, width=3.0))
+        fig_tempo.add_trace(go.Scatter(
             x=sub['rotulo_teste'],
             y=sub[coluna_tempo_ms],
+            mode='lines+markers',
             name=algo,
-            marker_color=cores.get(algo, '#333333'),
-            text=[f"{val:.4f} ms" for val in sub[coluna_tempo_ms]],
-            textposition='auto'
+            line=dict(color=cores.get(algo, '#333333'), width=est['width'], dash=est['dash']),
+            marker=dict(size=est['size'], symbol=est['marker'])
         ))
+
+    fig_tempo.add_annotation(
+        x="02. Diamante Patológico",
+        y=1.74176,
+        text="<b>Ford-Fulkerson: 1,7418 ms</b><br>(20.000 aumentações)",
+        showarrow=True,
+        arrowhead=2,
+        arrowsize=1,
+        arrowwidth=2,
+        arrowcolor="#EF553B",
+        ax=60,
+        ay=-45,
+        bgcolor="#ffffff",
+        bordercolor="#EF553B",
+        borderwidth=1.5,
+        font=dict(size=13, color="#EF553B")
+    )
 
     fig_tempo.update_layout(
         title=dict(
-            text="<b>Comparação de Tempo de Execução (Escala Logarítmica)</b>",
-            subtitle=dict(text="Ford-Fulkerson vs. Edmonds-Karp vs. Push-Relabel vs. Relabel-to-Front", font=dict(size=13, color="#555555")),
+            text="<b>Tempo de Execução por Cenário Estrutural (Escala Logarítmica)</b>",
+            subtitle=dict(text="Confronto de desempenho: Ford-Fulkerson vs. Edmonds-Karp vs. Push-Relabel vs. Relabel-to-Front", font=dict(size=14, color="#555555")),
             x=0.5,
             xanchor='center'
         ),
-        xaxis_title="Cenário de Teste",
-        yaxis_title="Tempo de Execução (ms - escala log)",
+        xaxis_title="<b>Cenário de Teste</b>",
+        yaxis_title="<b>Tempo de CPU (ms - escala logarítmica)</b>",
         yaxis_type="log",
-        barmode='group',
         template='plotly_white',
-        legend=dict(orientation="h", yanchor="top", y=-0.18, xanchor="center", x=0.5),
-        font=dict(family="Arial, sans-serif", size=13),
-        margin=dict(l=70, r=40, t=90, b=100)
+        legend=dict(orientation="h", yanchor="top", y=-0.18, xanchor="center", x=0.5, font=dict(size=14)),
+        font=dict(family="Arial, sans-serif", size=14),
+        margin=dict(l=80, r=40, t=90, b=100)
     )
 
-    saida_barras_tempo = os.path.join(diretorio_saida, "grafico_barras_tempo.png")
-    fig_tempo.write_image(saida_barras_tempo, width=1200, height=700, scale=2)
+    saida_linhas_tempo = os.path.join(diretorio_saida, "grafico_linhas_tempo.png")
+    fig_tempo.write_image(saida_linhas_tempo, width=1200, height=650, scale=2)
 
     fig_ops = go.Figure()
     for algo in df[coluna_algoritmo].unique():
